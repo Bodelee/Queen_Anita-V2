@@ -65,7 +65,7 @@ async function startA17() {
   console.log(color('\nHello, I am David Cyril, the Developer of this bot.\n\nThanks for using: QUEEN_ANITA-V2.', 'aqua'))
   console.log(color('\nYou can follow me on GitHub: ahil15', 'aqua'))
 
-  const { state, saveCreds } = await useMultiFileAuthState("./sessionDir");
+  const { state, saveCreds } = await useMultiFileAuthState("./ANITA-SESSION");
   const A17 = A17Connect({
     logger: pino({ level: "silent" }),
     printQRInTerminal: true,
@@ -88,7 +88,7 @@ async function startA17() {
         return;
       if (mek.key.id.startsWith("BAE5") && mek.key.id.length === 16) return;
       m = smsg(A17, mek, store);
-      require("./QUEEN_ANITA-V2")(A17, m, chatUpdate, store);
+      require("./Core")(A17, m, chatUpdate, store);
     } catch (err) {
       console.log(err);
     }
@@ -128,16 +128,16 @@ async function startA17() {
   
         A17.sendMessage(m.chat, { image: wm_fatih, caption: 'Group has been *Closed!* Only *Admins* can send Messages!' })
       } else if (pea[0].announce == false) {
-        // A17.send5ButImg(pea[0].id, `Grop has been *Opened!* Now *Everyone* can send Messages!`, `BelugaBot-MD`, wm_fatih, [])
+        // A17.send5ButImg(pea[0].id, `Grop has been *Opened!* Now *Everyone* can send Messages!`, `Queen_Anita-V2`, wm_fatih, [])
         A17.sendMessage(m.chat, { image: wm_fatih, caption: 'Group has been *Opened!* Now *Everyone* can send Messages!' })
       } else if (pea[0].restrict == true) {
-        //A17.send5ButImg(pea[0].id, `Group Info modification has been *Restricted*, Now only *Admins* can edit Group Info !`, `BelugaBot-MD`, wm_fatih, [])
+        //A17.send5ButImg(pea[0].id, `Group Info modification has been *Restricted*, Now only *Admins* can edit Group Info !`, `Queen_Anita-V2`, wm_fatih, [])
         A17.sendMessage(m.chat, { image: wm_fatih, caption: 'Group Info modification has been *Restricted*, Now only *Admins* can edit Group Info !' })
       } else if (pea[0].restrict == false) {
-        //A17.send5ButImg(pea[0].id, `Group Info modification has been *Un-Restricted*, Now only *Everyone* can edit Group Info !`, `BelugaBot-MD`, wm_fatih, [])
+        //A17.send5ButImg(pea[0].id, `Group Info modification has been *Un-Restricted*, Now only *Everyone* can edit Group Info !`, `Queen_Anita-V2`, wm_fatih, [])
         A17.sendMessage(m.chat, { image: wm_fatih, caption: 'Group Info modification has been *Un-Restricted*, Now only *Everyone* can edit Group Info !' })
       } else {
-        //A17.send5ButImg(pea[0].id, `Group Subject has been uhanged To:\n\n*${pea[0].subject}*`, `BelugaBot-MD`, wm_fatih, [])
+        //A17.send5ButImg(pea[0].id, `Group Subject has been uhanged To:\n\n*${pea[0].subject}*`, `Queen_Anita-V2`, wm_fatih, [])
         A17textddfq = `Group Subject has been updated To:\n\n*${pea[0].subject}*`
         A17.sendMessage(pea[0].id, { image: wm_fatih, caption: A17textddfq })
       }
